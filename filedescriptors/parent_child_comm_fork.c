@@ -46,7 +46,7 @@ int main(void)
             perror("write");
             return 1;
         }
-        close(fd[1]);
+        close(fd[1]); // closing the write end is MANDATORY, otherwise RACE CONDITIONS can occur
         waitpid(pid, NULL, 0);
     }
 
